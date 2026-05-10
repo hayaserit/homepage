@@ -2,21 +2,56 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>hayaserit.com</title>
+    <title>Welcome to hayaserit.com</title>
     <style>
-        body { 
-            background-color: #000; 
-            color: #fff; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-            font-family: sans-serif;
-        }
+        body { background-color: #000000; color: #00FF00; font-family: "MS PGothic", "Osaka", sans-serif; }
+        .container { width: 90%; margin: 20px auto; border: 3px double #00FF00; padding: 20px; }
+        h1 { border-bottom: 1px solid #00FF00; padding-bottom: 10px; text-align: center; }
+        .menu { float: left; width: 200px; border-right: 1px solid #00FF00; height: 100%; }
+        .main { margin-left: 220px; }
+        marquee { background-color: #333; color: #FFFF00; padding: 5px; margin-bottom: 20px; }
+        a { color: #00FFFF; }
+        .counter { font-weight: bold; color: #FF00FF; }
     </style>
 </head>
 <body>
-    <h1>hayaserit.com</h1>
+    <div class="container">
+        <marquee>★ hayaserit.com へようこそ！ ★</marquee>
+        
+        <h1>hayaserit.com</h1>
+
+        <div class="menu">
+            <h3>MENU</h3>
+            <ul>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">PROFILE</a></li>
+                <li><a href="#">MUSIC (Trance/DnB)</a></li>
+                <li><a href="#">3D ART</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+            <p>
+                あなたは<br>
+                <span class="counter">000001</span><br>
+                人目の訪問者です！
+            </p>
+        </div>
+
+        <div class="main">
+            <h2>ABOUT THIS SITE</h2>
+            <p>ここは管理人の趣味のページです。<br>
+            主にDTM（Trance, Drum'n'Bass）や3Dアート（Blender）について公開していく予定です。</p>
+
+            <h3>UPDATE</h3>
+            <p>2026/05/10：サイト開設！現在工事中...</p>
+            <p><img src="https://web.archive.org/web/20091027110903im_/http://geocities.com/Heartland/6112/undercon.gif" alt="工事中"></p>
+            
+            <p>BBS（掲示板）は準備中です。足跡を残していってください！</p>
+        </div>
+
+        <div style="clear: both; text-align: center; border-top: 1px solid #00FF00; margin-top: 20px; padding-top: 10px;">
+            推奨ブラウザ：Internet Explorer 6.0以上<br>
+            (C) 2026 hayaserit. All rights reserved.
+        </div>
+    </div>
 </body>
 </html>
