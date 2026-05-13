@@ -25,11 +25,27 @@
             background-repeat: no-repeat;
             background-image: url('27447498.jpg'); 
             
-            /* --- PC表示の修正 --- */
-            width: calc(100vh * 4 / 3); /* 画面の高さから4:3の幅を計算 */
+            /* --- PC表示の比率維持 --- */
+            width: calc(100vh * 4 / 3); 
             max-width: 100%;
-            aspect-ratio: 4 / 3; /* 比率を絶対維持 */
-            height: auto; /* 高さを幅に合わせる */
+            aspect-ratio: 4 / 3; 
+            height: auto;
+        }
+
+        /* フッターエリア（カウンターとコピーライト） */
+        .footer-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            width: 100%;
+            color: #555;
+            font-size: 12px;
+            background-color: #000;
+        }
+
+        .counter {
+            margin-bottom: 8px; /* コピーライトとの間隔 */
         }
 
         /* スマホ専用設定（画面幅768px以下） */
@@ -54,6 +70,13 @@
                 height: auto !important;
                 flex-shrink: 0; 
             }
+
+            /* スマホではフッターを最下部に固定 */
+            .footer-area {
+                position: absolute;
+                bottom: 10px;
+                padding: 0;
+            }
         }
     </style>
 </head>
@@ -62,6 +85,16 @@
     <div class="container">
         <div class="game-screen img1"></div>
         <div class="game-screen img2"></div>
+
+        <!-- フッターエリア -->
+        <div class="footer-area">
+            <div class="counter">
+                <!-- アクセスカウンター (type=27, width=6に設定) -->
+                <!-- name=の後の文字列は必要に応じて変更してください -->
+                <img src="http://www5.kannet.ne.jp/~counter/count.cgi?name=hayaserit01&type=27&width=6">
+            </div>
+            <div class="copyright">-2026 hayaserit-</div>
+        </div>
     </div>
 
 </body>
