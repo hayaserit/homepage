@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4:3 Classic Display</title>
     <style>
-        /* 基本設定：背景は常に黒、スクロール禁止 */
         body, html {
             margin: 0;
             padding: 0;
@@ -18,18 +17,16 @@
             align-items: center;
         }
 
-        /* 画面全体を覆うラッパー */
         .wrapper {
             display: flex;
             flex-direction: column;
-            /* 画面の高さに対して、常に4:3の比率を維持する最大幅を設定 */
             width: 100%;
             height: 100%;
-            max-width: calc(100vh * (4 / 3)); /* 縦基準で横幅を制限 */
+            /* PCフルスクリーン時に左右に黒枠を作る設定 */
+            max-width: calc(100vh * (4 / 3)); 
             margin: auto;
         }
 
-        /* 各画像エリア（上下50%ずつ） */
         .image-box {
             flex: 1;
             width: 100%;
@@ -39,33 +36,26 @@
             overflow: hidden;
         }
 
-        /* 画像の設定 */
         .content-img {
             width: 100%;
             height: 100%;
-            /* 4:3を強制し、隙間を黒で埋める（念のための設定） */
             aspect-ratio: 4 / 3;
             object-fit: contain;
             display: block;
-        }
-
-        /* フルスクリーン時の微調整（ブラウザのUIを考慮） */
-        :fullscreen .wrapper {
-            max-width: calc(100vh * (4 / 3));
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <!-- 1枚目 -->
+        <!-- 1枚目の画像：指定のファイル名 -->
         <div class="image-box">
-            <img src="image1.jpg" alt="Upper" class="content-img">
+            <img src="27447498.jpg" alt="Upper Image" class="content-img">
         </div>
 
-        <!-- 2枚目 -->
+        <!-- 2枚目の画像：ここも必要に応じて書き換えてください -->
         <div class="image-box">
-            <img src="image2.jpg" alt="Lower" class="content-img">
+            <img src="27447498.jpg" alt="Lower Image" class="content-img">
         </div>
     </div>
 
