@@ -25,14 +25,11 @@
             background-repeat: no-repeat;
             background-image: url('27447498.jpg'); 
             
-            /* --- PC・スマホ共通：4:3の比率を絶対維持 --- */
-            aspect-ratio: 4 / 3;
-            width: 100%;
-            /* PCで巨大化しすぎないよう、高さを画面内に収める */
-            max-height: 100vh; 
-            /* 幅は自動的に4:3で計算される */
-            width: auto; 
+            /* --- PC表示の修正 --- */
+            width: calc(100vh * 4 / 3); /* 画面の高さから4:3の幅を計算 */
             max-width: 100%;
+            aspect-ratio: 4 / 3; /* 比率を絶対維持 */
+            height: auto; /* 高さを幅に合わせる */
         }
 
         /* スマホ専用設定（画面幅768px以下） */
@@ -53,8 +50,8 @@
 
             .game-screen {
                 width: 100% !important;
-                height: auto !important;
                 aspect-ratio: 4 / 3 !important; 
+                height: auto !important;
                 flex-shrink: 0; 
             }
         }
