@@ -1,67 +1,43 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4:3 Full Visual Display</title>
-    <style>
-        /* 背景は常に黒、余計な余白をカット */
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            width: 100%;
-            /* スムーズなスクロールを有効にする場合 */
-            scroll-snap-type: y mandatory;
-            overflow-x: hidden;
-        }
+/* --- PC表示（デフォルト）のスタイル --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* PCでの背景色 */
+}
 
-        /* 各画像を包むセクション（ここを画面いっぱいの大きさに設定） */
-        .slide {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* スクロールした時にピタッと止まるようにする設定 */
-            scroll-snap-align: start;
-        }
+.container {
+    display: block; /* PCでの並び方は自由 */
+    width: 100%;
+}
 
-        /* 画像を囲む枠：ここでPC表示時の4:3を維持し、左右に黒枠を作る */
-        .image-container {
-            width: 100%;
-            height: 100%;
-            max-width: calc(100vh * (4 / 3)); /* 高さ100%に対する4:3の幅 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.main-image {
+    width: 100%; /* PCでは好きなサイズに調整してください */
+    height: auto;
+}
 
-        /* 画像本体 */
-        .content-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* 比率を維持して枠内に収める */
-            aspect-ratio: 4 / 3;
-            display: block;
-        }
-    </style>
-</head>
-<body>
 
-    <!-- 1枚目の画面 -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="27447498.jpg" alt="Slide 1" class="content-img">
-        </div>
-    </div>
+/* --- スマホ表示（画面幅768px以下）のスタイル --- */
+@media screen and (max-width: 768px) {
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;    /* スクロールを完全に禁止 */
+        background-color: #000; /* 下に余った部分が黒い枠になる */
+    }
 
-    <!-- 2枚目の画面（別の画像にしたい場合はsrcを書き換えてください） -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="27447498.jpg" alt="Slide 2" class="content-img">
-        </div>
-    </div>
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;       /* 画面いっぱいの高さを確保 */
+        width: 100%;
+    }
 
-</body>
-</html>
+    .main-image {
+        width: 100%;
+        aspect-ratio: 4 / 3; /* 強制的に4:3の比率にする */
+        object-fit: cover;   /* 画像を歪ませず、4:3の枠内に収める */
+        display: block;
+        flex-shrink: 0;      /* 画像が勝手に縮まないように固定 */
+    }
+}
