@@ -2,70 +2,71 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fixed Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4:3 Classic Display</title>
     <style>
+        /* 基本設定：背景は常に黒、スクロール禁止 */
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #000;
             width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
+        /* 画面全体を覆うラッパー */
+        .wrapper {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* 画面の高さに対して、常に4:3の比率を維持する最大幅を設定 */
             width: 100%;
+            height: 100%;
+            max-width: calc(100vh * (4 / 3)); /* 縦基準で横幅を制限 */
+            margin: auto;
         }
 
-        .game-screen {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* PCでも4:3基準の幅を維持 */
-            width: calc(100vh * 4 / 3); 
-            max-width: 100%;
-            background-image: url('27447498.jpg'); /* アップロード済みの画像名 */
+        /* 各画像エリア（上下50%ずつ） */
+        .image-box {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        .img1 {
-            height: 100vh;
+        /* 画像の設定 */
+        .content-img {
+            width: 100%;
+            height: 100%;
+            /* 4:3を強制し、隙間を黒で埋める（念のための設定） */
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            display: block;
         }
 
-        .img2 {
-            height: 130vh; 
-        }
-
-        /* スマホ専用設定 */
-        @media (max-width: 768px) {
-            html, body {
-                height: 100svh;
-                overflow: hidden;
-                position: fixed;
-            }
-            .container {
-                height: 100dvh;
-            }
-            .game-screen {
-                width: 100%;
-            }
-            .img1 {
-                height: auto;
-                aspect-ratio: 4 / 3;
-            }
-            .img2 {
-                flex-grow: 1;
-                height: auto;
-            }
+        /* フルスクリーン時の微調整（ブラウザのUIを考慮） */
+        :fullscreen .wrapper {
+            max-width: calc(100vh * (4 / 3));
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="game-screen img1"></div>
-        <div class="game-screen img2"></div>
+    <div class="wrapper">
+        <!-- 1枚目 -->
+        <div class="image-box">
+            <img src="image1.jpg" alt="Upper" class="content-img">
+        </div>
+
+        <!-- 2枚目 -->
+        <div class="image-box">
+            <img src="image2.jpg" alt="Lower" class="content-img">
+        </div>
     </div>
 
 </body>
