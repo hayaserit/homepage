@@ -1,4 +1,14 @@
-<style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>早世 hayaserit homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+
+    <style>
         body, html {
             margin: 0;
             padding: 0;
@@ -42,44 +52,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 0;
+            padding: 25px 0;
             width: 100%;
-            color: #555;
-            font-size: 12px;
             background-color: #000;
         }
 
-        /* 【新設】最初の画像をそのまま時計の枠として使う設定 */
-        .image-clock-wrapper {
-            position: relative;
-            /* 最初の画像の縦横比に合わせて表示エリアを作ります */
-            width: 200px; /* 飾りやすいように少しコンパクトにしています。サイズは自由に変えられます */
-            aspect-ratio: 310 / 238; /* 元の画像の比率 */
-            background-image: url('ダウンロード.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            margin-bottom: 8px;
+        /* 【ここを修正】フォントだけを表示する時計のスタイル */
+        #digital-clock {
+            /* 読み込んだ可愛い手書き風丸文字を適用 */
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-size: 36px; /* カウンターと同じくらいの存在感のあるサイズ */
+            font-weight: 700; /* 少し太めのペンで書いたような太さ */
+            color: #ffffff; /* 黒背景に映える白文字（お好みでピンクや青にも変えられます） */
+            letter-spacing: 2px; /* 文字の間隔を少しあけて見やすく */
+            margin-bottom: 10px;
+            line-height: 1;
         }
 
-        /* 画像の「白い部分」のど真ん中に4桁の数字を配置する */
-        #digital-clock {
-            position: absolute;
-            /* 画像内の白いスペース（下側）にぴったり収まるよう調整 */
-            top: 58%; 
-            left: 50%;
-            transform: translate(-50%, -50%);
-            
-            /* 最初のフォントと同じ「MS UI Gothic（アンチエイリアスなし）」を再現 */
-            font-family: "MS UI Gothic", "MS Gothic", sans-serif;
-            -webkit-font-smoothing: none;
-            -moz-osx-font-smoothing: none;
-            font-smooth: never;
-            
-            font-size: 32px; /* 4桁が枠に綺麗に収まる文字サイズ */
-            font-weight: bold;
-            color: #000000;
-            letter-spacing: 1px;
-            white-space: nowrap;
+        .copyright {
+            color: #555;
+            font-size: 12px;
+            font-family: sans-serif;
         }
 
         /* スマホ専用設定 */
@@ -107,8 +100,12 @@
 
             .footer-area {
                 position: absolute;
-                bottom: 10px;
+                bottom: 15px;
                 padding: 0;
+            }
+            
+            #digital-clock {
+                font-size: 28px; /* スマホでは少しコンパクトに */
             }
         }
     </style>
@@ -120,11 +117,8 @@
         <a href="#" class="game-screen img2"></a>
 
         <div class="footer-area">
+            <div id="digital-clock">00:00</div>
             
-            <div class="image-clock-wrapper">
-                <div id="digital-clock">00:00</div>
-            </div>
-
             <div class="copyright">-2026 hayaserit-</div>
         </div>
     </div>
