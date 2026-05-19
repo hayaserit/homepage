@@ -1,184 +1,220 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>早世 hayaserit homepage</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
 
     <style>
+
         body, html {
+
             margin: 0;
+
             padding: 0;
+
             background-color: #000;
+
             width: 100%;
+
         }
+
+
 
         .container {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             width: 100%;
+
         }
+
+
 
         /* 共通の画像設定 */
+
         .game-screen {
+
             display: block;
+
             text-decoration: none;
+
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
+
             
+
             /* PC表示の比率維持 */
+
             width: calc(100vh * 4 / 3); 
+
             max-width: 100%;
+
             aspect-ratio: 4 / 3; 
+
             height: auto;
+
         }
+
+
 
         /* --- 画像の個別指定 --- */
+
         .img1 { 
-            background-image: url('ダウンロード.png');
+
+            background-image: url('ダウンロード.png'); /* 1枚目をダウンロード.pngに */
+
         }
+
+
 
         .img2 { 
-            background-image: url('27447498.jpg');
+
+            background-image: url('27447498.jpg'); /* 2枚目はそのまま */
+
         }
+
+
 
         /* フッターエリア */
+
         .footer-area {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
-            padding: 35px 0;
+
+            padding: 20px 0;
+
             width: 100%;
+
+            color: #555;
+
+            font-size: 12px;
+
             background-color: #000;
+
         }
 
-        /* 【ここが本番】ホラー感・かすれ・ブレを表現する時計スタイル */
-        #digital-clock {
-            font-family: 'Hachi Maru Pop', cursive, sans-serif;
-            font-size: 40px;
-            font-weight: normal;
-            
-            /* 赤黒い血のような、あるいは呪いのビデオの文字のような色 */
-            color: #d11a1a; 
-            
-            letter-spacing: 4px; /* 不穏な空気感を出すために文字間をあける */
-            margin-bottom: 15px;
-            line-height: 1;
-            
-            /* 👻 かすれ・にじみ・ブレを再現する特殊な影（テキストシャドウ）の重ね掛け */
-            text-shadow: 
-                0 0 4px #d11a1a, 
-                2px 2px 2px rgba(0, 0, 0, 0.8),
-                -1px -1px 0px #5e0000,
-                1px -2px 4px rgba(209, 26, 26, 0.6);
-                
-            /* 文字自体を少しだけ歪ませて、精神的に不安定な手書き感を出す */
-            transform: skewX(-4deg) rotate(1deg); 
-            display: inline-block;
-            
-            /* ちらつき（グリッチ効果）のノイズアニメーション */
-            animation: horror-glitch 4s infinite alternate;
+
+
+        .counter {
+
+            margin-bottom: 8px;
+
         }
 
-        /* 著作権表示もホラーの雰囲気に引きずり込む */
-        .copyright {
-            color: #444; /* より暗いグレーにして闇に溶け込ませる */
-            font-size: 11px;
-            font-family: 'Hachi Maru Pop', sans-serif;
-            letter-spacing: 2px;
-        }
 
-        /* 時計がたまにビクッとブレる、不気味なノイズ演出のプログラム */
-        @keyframes horror-glitch {
-            0%, 95%, 100% {
-                transform: skewX(-4deg) rotate(1deg);
-                filter: blur(0px);
-                opacity: 1;
-            }
-            96% {
-                transform: skewX(8deg) translate(2px, -1px);
-                filter: blur(1px);
-                opacity: 0.8;
-            }
-            97% {
-                transform: skewX(-12deg) translate(-2px, 1px);
-                filter: blur(0.5px);
-                opacity: 0.9;
-            }
-            98% {
-                transform: skewX(-4deg) rotate(1deg);
-                filter: blur(0px);
-            }
-        }
 
         /* スマホ専用設定 */
+
         @media (max-width: 768px) {
+
             html, body {
+
                 height: 100%;
+
                 overflow: hidden; 
+
                 position: fixed;  
+
                 background-color: #000;
+
             }
+
+
 
             .container {
+
                 height: 100dvh;
+
                 display: flex;
+
                 flex-direction: column;
+
                 justify-content: flex-start; 
+
             }
+
+
 
             .game-screen {
+
                 width: 100% !important;
+
                 aspect-ratio: 4 / 3 !important; 
+
                 height: auto !important;
+
                 flex-shrink: 0; 
+
             }
+
+
 
             .footer-area {
+
                 position: absolute;
-                bottom: 25px;
+
+                bottom: 10px;
+
                 padding: 0;
+
             }
-            
-            #digital-clock {
-                font-size: 32px;
-            }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <div class="container">
+
+        <!-- 必要に応じて href="" の中にリンク先URLを入れてください -->
+
         <a href="#" class="game-screen img1"></a>
+
         <a href="#" class="game-screen img2"></a>
 
+
+
+        <!-- フッターエリア -->
+
         <div class="footer-area">
-            <div id="digital-clock">00:00</div>
-            
+
+            <div class="counter">
+
+                <img src="http://www5.kannet.ne.jp/~counter/count.cgi?name=hayaserit01&type=27&width=6">
+
+            </div>
+
             <div class="copyright">-2026 hayaserit-</div>
+
         </div>
+
     </div>
 
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('digital-clock').textContent = `${hours}:${minutes}`;
-        }
-        updateClock();
-        const secondsToNextMinute = 60 - new Date().getSeconds();
-        setTimeout(function() {
-            updateClock();
-            setInterval(updateClock, 60000);
-        }, secondsToNextMinute * 1000);
-    </script>
+
 
 </body>
+
 </html>
+
