@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>早世 hayaserit homepage</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
 
     <style>
         body, html {
@@ -52,27 +53,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 25px 0;
+            padding: 30px 0;
             width: 100%;
             background-color: #000;
         }
 
-        /* 【ここを修正】フォントだけを表示する時計のスタイル */
+        /* 手書き風フォントだけの時計スタイル */
         #digital-clock {
-            /* 読み込んだ可愛い手書き風丸文字を適用 */
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 36px; /* カウンターと同じくらいの存在感のあるサイズ */
-            font-weight: 700; /* 少し太めのペンで書いたような太さ */
-            color: #ffffff; /* 黒背景に映える白文字（お好みでピンクや青にも変えられます） */
-            letter-spacing: 2px; /* 文字の間隔を少しあけて見やすく */
-            margin-bottom: 10px;
+            font-family: 'Kiwi Maru', sans-serif; /* 手書きフォントを適用 */
+            font-size: 38px; /* 存在感のある大きめのサイズ */
+            color: #ffffff; /* 完全に不自然じゃない、パキッとした白文字 */
+            letter-spacing: 1px; /* 自然な文字の間隔 */
+            margin-bottom: 12px;
             line-height: 1;
         }
 
         .copyright {
             color: #555;
             font-size: 12px;
-            font-family: sans-serif;
+            font-family: 'Kiwi Maru', sans-serif; /* コピーライトも手書きでお洒落に */
+            opacity: 0.7;
         }
 
         /* スマホ専用設定 */
@@ -100,12 +100,12 @@
 
             .footer-area {
                 position: absolute;
-                bottom: 15px;
+                bottom: 20px;
                 padding: 0;
             }
             
             #digital-clock {
-                font-size: 28px; /* スマホでは少しコンパクトに */
+                font-size: 30px; /* スマホでは画面に合わせて少しスリムに */
             }
         }
     </style>
