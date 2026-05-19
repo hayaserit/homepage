@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>早世 hayaserit homepage</title>
-    <style>
+<style>
         body, html {
             margin: 0;
             padding: 0;
@@ -36,11 +30,11 @@
 
         /* --- 画像の個別指定 --- */
         .img1 { 
-            background-image: url('ダウンロード.png'); /* 1枚目をダウンロード.pngに */
+            background-image: url('ダウンロード.png');
         }
 
         .img2 { 
-            background-image: url('27447498.jpg'); /* 2枚目はそのまま */
+            background-image: url('27447498.jpg');
         }
 
         /* フッターエリア */
@@ -55,64 +49,37 @@
             background-color: #000;
         }
 
-        /* レトロウィンドウ風時計のスタイル */
-        .window-clock {
-            width: 160px; /* カウンターと同じくらいのコンパクトなサイズ */
-            border: 2px solid #000000;
-            box-shadow: inset 1px 1px #dfdfdf, 1px 1px #000000;
-            background-color: #ffffff;
-            font-family: "MS UI Gothic", "MS Gothic", monospace;
-            font-size: 11px;
-            margin-bottom: 8px; /* 下の著作権表示との隙間 */
-            box-sizing: border-box;
+        /* 【新設】最初の画像をそのまま時計の枠として使う設定 */
+        .image-clock-wrapper {
+            position: relative;
+            /* 最初の画像の縦横比に合わせて表示エリアを作ります */
+            width: 200px; /* 飾りやすいように少しコンパクトにしています。サイズは自由に変えられます */
+            aspect-ratio: 310 / 238; /* 元の画像の比率 */
+            background-image: url('ダウンロード.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            margin-bottom: 8px;
         }
 
-        /* 青いタイトルバー */
-        .window-title-bar {
-            background: linear-gradient(90deg, #004e92, #000080);
-            padding: 2px 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        /* タイトルバーのボタン */
-        .window-controls {
-            display: flex;
-            gap: 2px;
-        }
-        .win-btn {
-            background: #cbd2d6;
-            border: 1px solid #ffffff;
-            box-shadow: inset -1px -1px #707070, 1px 1px #000000;
-            color: #000000;
-            font-size: 8px;
-            font-weight: bold;
-            padding: 0px 3px;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .win-close {
-            background: #e64626;
-            color: #ffffff;
-        }
-
-        /* 時計の数字が入る部分 */
-        .window-body {
-            padding: 8px;
-            text-align: center;
-            background-color: #ffffff;
-        }
-
-        /* 時:分 の文字デザイン */
+        /* 画像の「白い部分」のど真ん中に4桁の数字を配置する */
         #digital-clock {
-            font-size: 24px;
-            font-family: "MS Gothic", monospace;
+            position: absolute;
+            /* 画像内の白いスペース（下側）にぴったり収まるよう調整 */
+            top: 58%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            /* 最初のフォントと同じ「MS UI Gothic（アンチエイリアスなし）」を再現 */
+            font-family: "MS UI Gothic", "MS Gothic", sans-serif;
+            -webkit-font-smoothing: none;
+            -moz-osx-font-smoothing: none;
+            font-smooth: never;
+            
+            font-size: 32px; /* 4桁が枠に綺麗に収まる文字サイズ */
             font-weight: bold;
             color: #000000;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         /* スマホ専用設定 */
@@ -154,18 +121,10 @@
 
         <div class="footer-area">
             
-            <div class="window-clock">
-                <div class="window-title-bar">
-                    <span class="window-title">時計</span>
-                    <div class="window-controls">
-                        <button class="win-btn">?</button>
-                        <button class="win-btn win-close">×</button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <div id="digital-clock">00:00</div>
-                </div>
+            <div class="image-clock-wrapper">
+                <div id="digital-clock">00:00</div>
             </div>
+
             <div class="copyright">-2026 hayaserit-</div>
         </div>
     </div>
@@ -173,23 +132,15 @@
     <script>
         function updateClock() {
             const now = new Date();
-            
-            // 時・分を取得して常に2桁（00:00）にする
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            
-            // 画面の時計テキストを書き換え
             document.getElementById('digital-clock').textContent = `${hours}:${minutes}`;
         }
-
-        // ページを開いた瞬間に1回実行
         updateClock();
-
-        // ぴったり次の「00秒」になった瞬間に更新を開始するためのタイマー設定
         const secondsToNextMinute = 60 - new Date().getSeconds();
         setTimeout(function() {
             updateClock();
-            setInterval(updateClock, 60000); // 以降、1分（60000ミリ秒）ごとに更新
+            setInterval(updateClock, 60000);
         }, secondsToNextMinute * 1000);
     </script>
 
