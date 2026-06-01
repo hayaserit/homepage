@@ -1,216 +1,85 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>早世 hayaserit homepage</title>
-
     <style>
-
         body, html {
-
             margin: 0;
-
             padding: 0;
-
             background-color: #000;
-
             width: 100%;
-
         }
-
-
-
         .container {
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             width: 100%;
-
         }
-
-
-
-        /* 共通の画像設定 */
-
         .game-screen {
-
             display: block;
-
-            text-decoration: none;
-
             background-size: cover;
-
             background-position: center;
-
             background-repeat: no-repeat;
-
-            
-
-            /* PC表示の比率維持 */
-
             width: calc(100vh * 4 / 3); 
-
             max-width: 100%;
-
             aspect-ratio: 4 / 3; 
-
             height: auto;
-
         }
-
-
-
-        /* --- 画像の個別指定 --- */
-
         .img1 { 
-
-            background-image: url('ダウンロード.png'); /* 1枚目をダウンロード.pngに */
-
+            background-image: url('ダウンロード.png');
         }
-
-
-
         .img2 { 
-
-            background-image: url('27447498.jpg'); /* 2枚目はそのまま */
-
+            background-image: url('27447498.jpg');
         }
-
-
-
-        /* フッターエリア */
-
         .footer-area {
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             padding: 20px 0;
-
             width: 100%;
-
             color: #555;
-
             font-size: 12px;
-
             background-color: #000;
-
         }
-
-
-
         .counter {
-
             margin-bottom: 8px;
-
         }
-
-
-
-        /* スマホ専用設定 */
-
         @media (max-width: 768px) {
-
             html, body {
-
                 height: 100%;
-
                 overflow: hidden; 
-
                 position: fixed;  
-
                 background-color: #000;
-
             }
-
-
-
             .container {
-
                 height: 100dvh;
-
                 display: flex;
-
                 flex-direction: column;
-
                 justify-content: flex-start; 
-
             }
-
-
-
             .game-screen {
-
                 width: 100% !important;
-
                 aspect-ratio: 4 / 3 !important; 
-
                 height: auto !important;
-
                 flex-shrink: 0; 
-
             }
-
-
-
             .footer-area {
-
                 position: absolute;
-
                 bottom: 10px;
-
                 padding: 0;
-
             }
-
         }
-
     </style>
-
 </head>
-
 <body>
-
-
-
     <div class="container">
-
-        <!-- 必要に応じて href="" の中にリンク先URLを入れてください -->
-
-        <a href="#" class="game-screen img1"></a>
-
-        <a href="#" class="game-screen img2"></a>
-
-
-
-        <!-- フッターエリア -->
-
+        <div class="game-screen img1"></div>
+        <div class="game-screen img2"></div>
         <div class="footer-area">
-
-          
-
             <div class="copyright">-2026 hayaserit-</div>
-
         </div>
-
     </div>
-
-
-
 </body>
-
 </html>
-
