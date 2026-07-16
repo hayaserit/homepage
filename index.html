@@ -2,84 +2,120 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>早世 hayaserit homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>data0621</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body, html {
+        html {
+            height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            width: 100%;
         }
-        .container {
+
+        body {
+            height: 100%;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            width: 100%;
-        }
-        .game-screen {
-            display: block;
+            text-align: center;
+
+            background-image: url('IMG_4738.JPG');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            width: calc(100vh * 4 / 3); 
-            max-width: 100%;
-            aspect-ratio: 4 / 3; 
-            height: auto;
+            background-attachment: scroll;
         }
-        .img1 { 
-            background-image: url('ダウンロード.png');
-        }
-        .img2 { 
-            background-image: url('27447498.jpg');
-        }
-        .footer-area {
+
+        .container-wall {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px 0;
-            width: 100%;
-            color: #555;
-            font-size: 12px;
-            background-color: #000;
+            width: 250px;
+            height: 380px;
+            background-color: #dcdccb;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            border: 4px solid #b5b5a5;
+            box-shadow: 0px 10px 0px rgba(0,0,0,0.2);
+            position: relative;
         }
-        .counter {
-            margin-bottom: 8px;
+        
+        .enter-btn {
+            display: block;
+            width: 150px;
+            height: 290px;
+            background-color: #c8d0d0; 
+            color: #111111;
+            text-decoration: none;
+            box-sizing: border-box;
+            border: 5px solid #999999;
+            box-shadow: inset -2px -2px 0px #aaaaaa, inset 2px 2px 0px #ffffff;
+            position: relative;
         }
-        @media (max-width: 768px) {
-            html, body {
-                height: 100%;
-                overflow: hidden; 
-                position: fixed;  
-                background-color: #000;
-            }
-            .container {
-                height: 100dvh;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start; 
-            }
-            .game-screen {
-                width: 100% !important;
-                aspect-ratio: 4 / 3 !important; 
-                height: auto !important;
-                flex-shrink: 0; 
-            }
-            .footer-area {
-                position: absolute;
-                bottom: 10px;
-                padding: 0;
-            }
+        
+        .enter-btn::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 25px;
+            width: 100px;
+            height: 12px;
+            background-color: #151515;
+            border-bottom: 2px solid #999;
+        }
+
+        .enter-text {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            font-family: monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #444444;
+            text-transform: uppercase;
+        }
+        
+        .enter-btn::after {
+            content: "";
+            position: absolute;
+            top: 55%;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            background-color: #777777;
+            border: 2px solid #555555;
+            box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+        }
+
+        .enter-btn:active {
+            background-color: #bdc5c5;
+            box-shadow: inset 2px 2px 0px #888;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="game-screen img1"></div>
-        <div class="game-screen img2"></div>
-        <div class="footer-area">
-            <div class="copyright">-2026 hayaserit-</div>
-        </div>
+
+    <div class="container-wall">
+        <a href="main.html" class="enter-btn">
+            <span class="enter-text">ENTER</span>
+        </a>
     </div>
+
+    <script>
+        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
+        document.addEventListener('mousewheel', function(e) { e.preventDefault(); }, { passive: false });
+    </script>
+
 </body>
 </html>
