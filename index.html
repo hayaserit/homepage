@@ -25,8 +25,88 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('IMG_4738.JPG');
+            background-image: url('IMG_4738.JPG'); /* ←末尾にセミコロンを追加しました */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment:
+            background-attachment: scroll;
+        }
+        .container-wall {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 380px;
+            background-color: #dcdccb;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            border: 4px solid #b5b5a5;
+            box-shadow: 0px 10px 0px rgba(0,0,0,0.2);
+            position: relative;
+        }    .enter-btn {
+        display: block;
+        width: 150px;
+        height: 290px;
+        background-color: #c8d0d0; 
+        color: #111111;
+        text-decoration: none;
+        box-sizing: border-box;
+        border: 5px solid #999999;
+        box-shadow: inset -2px -2px 0px #aaaaaa, inset 2px 2px 0px #ffffff;
+        position: relative;
+    }
+    
+    .enter-btn::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 25px;
+        width: 100px;
+        height: 12px;
+        background-color: #151515;
+        border-bottom: 2px solid #999;
+    }
+    .enter-text {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: #444444;
+        text-transform: uppercase;
+    }
+    
+    .enter-btn::after {
+        content: "";
+        position: absolute;
+        top: 55%;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+        background-color: #777777;
+        border: 2px solid #555555;
+        box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+    }
+    .enter-btn:active {
+        background-color: #bdc5c5;
+        box-shadow: inset 2px 2px 0px #888;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container-wall">
+        <a href="main.html" class="enter-btn">
+            <span class="enter-text">ENTER</span>
+        </a>
+    </div>
+    <script>
+        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
+        document.addEventListener('mousewheel', function(e) { e.preventDefault(); }, { passive: false });
+    </script>
+</body>
+</html>
