@@ -38,7 +38,7 @@
             width: 250px;
             height: 380px;
             background-color: #dcdccb;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -46,65 +46,68 @@
             box-shadow: 0px 10px 0px rgba(0,0,0,0.2);
             position: relative;
         }
+
+        /* ドア = XP風ウィンドウ(外枠込みで150x290のまま) */
         .enter-btn {
             display: block;
             width: 150px;
             height: 290px;
-            background-color: #c8d0d0; 
-            color: #111111;
-            text-decoration: none;
             box-sizing: border-box;
-            border: 5px solid #999999;
-            box-shadow: inset -2px -2px 0px #aaaaaa, inset 2px 2px 0px #ffffff;
+            background: #ece9d8;
+            border: 3px solid #0831d9;
+            border-radius: 8px 8px 0 0;
+            text-decoration: none;
             position: relative;
+            overflow: hidden;
         }
-        .enter-btn::before {
+        .xp-title {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 26px;
+            padding: 0 3px 0 5px;
+            background: linear-gradient(#3a8cff 0%, #0058ee 12%, #0050e0 60%, #0a5ae6 100%);
+        }
+        .xp-btns {
+            display: flex;
+            gap: 2px;
+        }
+        .xp-btns i {
+            position: relative;
+            width: 17px;
+            height: 17px;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            background: linear-gradient(#6f9cf5, #2a5fd8);
+        }
+        .xp-btns i.close {
+            background: linear-gradient(#ec8a6e, #c4401a);
+        }
+        .xp-btns i.min::after {
             content: "";
             position: absolute;
-            top: 40px;
-            left: 25px;
-            width: 100px;
-            height: 12px;
-            background-color: #151515;
-            border-bottom: 2px solid #999;
+            left: 3px;
+            bottom: 3px;
+            width: 6px;
+            height: 2px;
+            background: #fff;
         }
-        .enter-text {
-            position: absolute;
-            bottom: 30px;
-            left: 20px;
-            font-family: monospace;
-            font-size: 11px;
-            letter-spacing: 1px;
-            font-weight: bold;
-            color: #444444;
-            text-transform: uppercase;
-        }
-        .enter-btn::after {
+        .xp-btns i.max::after {
             content: "";
             position: absolute;
-            top: 55%;
-            right: 15px;
-            width: 20px;
-            height: 20px;
-            background-color: #777777;
-            border: 2px solid #555555;
-            box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+            left: 3px;
+            top: 3px;
+            width: 7px;
+            height: 6px;
+            border: 1px solid #fff;
+            border-top-width: 2px;
         }
-        .enter-btn:active {
-            background-color: #bdc5c5;
-            box-shadow: inset 2px 2px 0px #888;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-wall">
-        <a href="main.html" class="enter-btn">
-            <span class="enter-text">██に█りますか.</span>
-        </a>
-    </div>
-    <script>
-        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
-        document.addEventListener('mousewheel', function(e) { e.preventDefault(); }, { passive: false });
-    </script>
-</body>
-</html>
+        .xp-btns i.close::after {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            line-height: 15px;
+            text-align:
