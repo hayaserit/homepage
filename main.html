@@ -2,15 +2,35 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Not Found</title>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            touch-action: none;
+            -webkit-text-size-adjust: 100%;
+        }
         body {
+            box-sizing: border-box;
+            padding: 8px;
             font-family: "Times New Roman", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS PMincho", serif;
+            overflow-wrap: break-word;
         }
     </style>
 </head>
 <body>
     <h1>Not Found</h1>
     <p>The requested resource was not found on this server.</p>
+
+    <script>
+        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
+        document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+        document.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+        document.addEventListener('dblclick', function(e) { e.preventDefault(); });
+    </script>
 </body>
 </html>
